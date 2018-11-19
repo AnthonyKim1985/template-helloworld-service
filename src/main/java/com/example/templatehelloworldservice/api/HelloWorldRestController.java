@@ -7,8 +7,18 @@ import reactor.core.publisher.Mono;
 
 @RestController
 public class HelloWorldRestController {
-    @GetMapping("/api/v1/admin/hello")
-    public Mono<String> hello(@RequestParam("name") String name) {
+    @GetMapping("/api/v1/admins/hello")
+    public Mono<String> helloAdmin(@RequestParam("name") String name) {
+        return Mono.just("Hello, " + name);
+    }
+
+    @GetMapping("/api/v1/managers/hello")
+    public Mono<String> helloManager(@RequestParam("name") String name) {
+        return Mono.just("Hello, " + name);
+    }
+
+    @GetMapping("/api/v1/staff/hello")
+    public Mono<String> helloStaff(@RequestParam("name") String name) {
         return Mono.just("Hello, " + name);
     }
 }
